@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Brush Script MT", cursive;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.bookDisplay {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 4px solid #000;
+  width: 100%;
+}
+
+article {
+  display: flex;
+  justify-content: space-between;
+}
+
+hr {
+  display: none;
+}
+
+.book-row-even {
+  background-color: white;
+}
+
+.book-row-odd {
+  background-color: #ddd;
+}
+
+input {
+  border: 3px solid black;
+  font-weight: bold;
+}
+
+button {
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  box-shadow: 2.5px 2.5px 0 0 black;
+  font-weight: bold;
+}
+
+article button {
+  margin-right: 0.8rem;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+.form button {
+  float: right;
+}
+
+.error {
+  color: red;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 900;
+  border: 2px solid #000;
+  width: 100%;
+}
+
+/* nav .Pagetitle {
+  } */
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+  list-style: none;
+}
+
+#contact h1 {
+  font-size: 34px;
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+nav ul li a.active {
+  color: blue;
+}
+
+#add {
+  display: none;
+}
+
+#add.active {
+  display: block;
+}
+
+#list.active {
+  display: block;
+}
+
+#contact.active {
+  display: block;
+}
+
+.time {
+  margin-right: 0;
+  width: 100%;
+}
+
+.time p {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.date {
+  color: black;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000;
+  align-items: center;
+  width: 50%;
+  margin-top: 1.5rem;
+}
