@@ -2,7 +2,7 @@ import { DOMElements } from './dom-elements.js';
 
 const domElements = new DOMElements();
 
-export function navigateToSection(sectionId) {
+export const navigateToSection = (sectionId) => {
   const sections = document.querySelectorAll('.content');
   const section = document.querySelector(`#${sectionId}`);
   sections.forEach((s) => {
@@ -30,9 +30,9 @@ export function navigateToSection(sectionId) {
     domElements.form.style.display = 'none';
     domElements.bookDisplay.style.display = 'none';
   }
-}
+};
 
-export function handleNavigation() {
+export const handleNavigation = () => {
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -41,4 +41,4 @@ export function handleNavigation() {
       navigateToSection(sectionId);
     });
   });
-}
+};

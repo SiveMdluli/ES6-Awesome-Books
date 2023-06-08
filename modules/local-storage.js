@@ -1,21 +1,17 @@
-export function getBookHolder() {
-  return JSON.parse(localStorage.getItem('storedBooks')) || [];
-}
+export const getBookHolder = () => JSON.parse(localStorage.getItem('storedBooks')) || [];
 
-export function saveBookHolder(bookHolder) {
+export const saveBookHolder = (bookHolder) => {
   localStorage.setItem('storedBooks', JSON.stringify(bookHolder));
-}
+};
 
-export function getInputData() {
-  return JSON.parse(localStorage.getItem('inputdata')) || {};
-}
+export const getInputData = () => JSON.parse(localStorage.getItem('inputdata')) || {};
 
-export function saveInputData(inputData) {
+export const saveInputData = (inputData) => {
   localStorage.setItem('inputdata', JSON.stringify(inputData));
-}
+};
 
-export function deleteBook(index) {
+export const deleteBook = (index) => {
   const bookHolder = getBookHolder();
   bookHolder.splice(index, 1);
   saveBookHolder(bookHolder);
-}
+};

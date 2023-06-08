@@ -10,7 +10,7 @@ import {
 
 const domElements = new DOMElements();
 
-export function addBookToHolder(newBook) {
+export const addBookToHolder = (newBook) => {
   const bookHolder = getBookHolder();
   // Check if the book already exists in local storage
   if (bookHolder.some((book) => book.title === newBook.title)) {
@@ -21,14 +21,14 @@ export function addBookToHolder(newBook) {
   bookHolder.push(newBook);
   saveBookHolder(bookHolder);
   displayBooks();
-}
+};
 
-export function clearInputData() {
+export const clearInputData = () => {
   const inputData = { inputTitle: '', inputAuthor: '' };
   saveInputDataToLocalStorage(inputData);
-}
+};
 
-export function addBook() {
+export const addBook = () => {
   const titleData = domElements.inputTitle.value;
   const authorData = domElements.inputAuthor.value;
   if (titleData === '' || authorData === '') {
@@ -43,9 +43,9 @@ export function addBook() {
   domElements.inputTitle.value = '';
   domElements.inputAuthor.value = '';
   domElements.clearError(); // clear error message
-}
+};
 
-export function displayBooks() {
+export const displayBooks = () => {
   domElements.bookDisplay.innerHTML = '';
   const bookHolder = getBookHolder();
   bookHolder.forEach((book, index) => {
@@ -67,19 +67,19 @@ export function displayBooks() {
       bookInstance.classList.add('book-row-odd');
     }
   });
-}
+};
 
-export function saveInputDataToLocalStorage() {
+export const saveInputDataToLocalStorage = () => {
   const inputData = {
     inputTitle: domElements.inputTitle.value,
     inputAuthor: domElements.inputAuthor.value,
   };
   saveInputData(inputData);
-}
+};
 
-export function setInputData() {
+export const setInputData = () => {
   const inputData = getInputData();
   domElements.inputTitle.value = inputData.inputTitle;
   domElements.inputAuthor.value = inputData.inputAuthor;
   saveInputDataToLocalStorage(inputData);
-}
+};
