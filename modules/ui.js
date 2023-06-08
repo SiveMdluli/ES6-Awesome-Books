@@ -1,12 +1,12 @@
-import { DOMElements } from "./dom-elements.js";
-import { Book } from "./book.js";
+import { DOMElements } from './dom-elements.js';
+import { Book } from './book.js';
 import {
   getBookHolder,
   saveBookHolder,
   getInputData,
   saveInputData,
   deleteBook,
-} from "./local-storage.js";
+} from './local-storage.js';
 
 const domElements = new DOMElements();
 
@@ -24,14 +24,14 @@ export function addBookToHolder(newBook) {
 }
 
 export function clearInputData() {
-  const inputData = { inputTitle: "", inputAuthor: "" };
+  const inputData = { inputTitle: '', inputAuthor: '' };
   saveInputDataToLocalStorage(inputData);
 }
 
 export function addBook() {
   const titleData = domElements.inputTitle.value;
   const authorData = domElements.inputAuthor.value;
-  if (titleData === "" || authorData === "") {
+  if (titleData === '' || authorData === '') {
     domElements.displayError();
     return;
   }
@@ -40,21 +40,21 @@ export function addBook() {
   addBookToHolder(newBook);
   clearInputData();
   displayBooks();
-  domElements.inputTitle.value = "";
-  domElements.inputAuthor.value = "";
+  domElements.inputTitle.value = '';
+  domElements.inputAuthor.value = '';
   domElements.clearError(); // clear error message
 }
 
 export function displayBooks() {
-  domElements.bookDisplay.innerHTML = "";
+  domElements.bookDisplay.innerHTML = '';
   const bookHolder = getBookHolder();
   bookHolder.forEach((book, index) => {
-    const bookInstance = document.createElement("article");
+    const bookInstance = document.createElement('article');
     const dispTitle = `"${book.title}" by ${book.author}`; // Concatenate book title and author
-    const delButton = document.createElement("button");
-    delButton.textContent = "Remove";
-    delButton.setAttribute("data-index", index);
-    delButton.addEventListener("click", () => {
+    const delButton = document.createElement('button');
+    delButton.textContent = 'Remove';
+    delButton.setAttribute('data-index', index);
+    delButton.addEventListener('click', () => {
       deleteBook(index);
       displayBooks();
     });
@@ -62,9 +62,9 @@ export function displayBooks() {
     domElements.bookDisplay.append(bookInstance);
     // add class to each bookInstance element based on its index
     if (index % 2 === 0) {
-      bookInstance.classList.add("book-row-even");
+      bookInstance.classList.add('book-row-even');
     } else {
-      bookInstance.classList.add("book-row-odd");
+      bookInstance.classList.add('book-row-odd');
     }
   });
 }
